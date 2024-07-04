@@ -6,7 +6,7 @@ export default {
       colors: {
         'primary': '#E5E5E5',
         'secondary': '#1A1A1A',
-        'gold': '#C7C738',
+        'accent': '#C7C738',
       },
     },
   },

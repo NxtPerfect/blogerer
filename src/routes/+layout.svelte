@@ -1,11 +1,11 @@
 <script>
-	import Header from './Header.svelte';
+	import Nav from './Nav.svelte';
   import Footer from './Footer.svelte'
   import '../app.css';
 </script>
 
 <div class="app bg-secondary">
-	<Header />
+	<Nav />
 
 	<main>
 		<slot />

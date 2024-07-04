@@ -9,11 +9,24 @@ type Post = {
   id: number,
   title: string,
   date: Date,
-  tags: Array<Tag>,
+  tags: Object<string, Tag>,
   content: string,
+}
+
+export enum Color {
+  red = "red",
+  green = "emerald",
+  blue = "blue",
+  purple = "purple",
+  black = "neutral",
+  yellow = "yellow",
+  teal = "teal",
+  orange = "orange",
+  lime = "lime",
+  pink = "pink",
 }
 
 type Tag = {
   name: string,
-  color: null // Should have color depending on name?
+  color: Color // Should have color depending on name?
 }

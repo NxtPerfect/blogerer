@@ -1,7 +1,6 @@
 # UI
-- [/] Home page
+- [x] Home page
     - [x] Tags on articles should also be links
-    - [ ] How do i specify color for each tag
-        - In the type definition?
-        - When creating the tag?
+    - [x] How do i specify color for each tag
+        - [x] In the type definition?
 - [ ] Article page
