@@ -1,11 +1,11 @@
 <script lang="ts">
 
 	let categories: Array<Category> = [
-    {id: 0, name: "AI"},
-    {id: 1, name: "Web"},
-    {id: 2, name: "Functional Programming"},
-    {id: 3, name: "Python"},
-    {id: 4, name: "JavaScript"},
+    {id: 0, short_name: "ai", name: "AI"},
+    {id: 1, short_name: "web", name: "Web"},
+    {id: 2, short_name: "fp", name: "Functional Programming"},
+    {id: 3, short_name: "py", name: "Python"},
+    {id: 4, short_name: "js", name: "JavaScript"},
   ];
 </script>
 
@@ -19,7 +19,7 @@
 <div class="grid">
   <ul>
     {#each categories as category}
-      <li key={category.id}><a href="/posts/{category.id}">{category.name}</a></li>
+      <li key={category.id}><a href="/posts/{category.short_name}">{category.name}</a></li>
     {/each}
   </ul>
 </div>

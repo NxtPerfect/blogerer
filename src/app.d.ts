@@ -9,6 +9,7 @@ declare global {
     // interface Platform {}
     type Category = {
       id: number,
+      short_name: string,
       name: string,
     }
   }
