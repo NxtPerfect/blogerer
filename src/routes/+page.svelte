@@ -77,7 +77,7 @@
           <div class="pl-24 flex flex-row gap-4 text-md">
             Tags:
             {#each post.tags as tag}
-              <a class="rounded-2xl px-4 text-primary bg-{tag.color}-950 text-center" href="posts&category={tag.name}">
+              <a class="rounded-2xl px-4 text-primary bg-{tag.color}-950 text-center" href="posts?category={tag.name}">
                 {tag.name}
               </a>
             {/each}
