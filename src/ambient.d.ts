@@ -17,13 +17,13 @@ export enum Color {
   red = "bg-red-950",
   green = "bg-emerald-950",
   blue = "bg-blue-950",
-  purple = "purple",
-  black = "neutral",
-  yellow = "yellow",
-  teal = "teal",
-  orange = "orange",
-  lime = "lime",
-  pink = "pink",
+  purple = "bg-purple-950",
+  black = "bg-neutral-950",
+  yellow = "bg-yellow-950",
+  teal = "bg-teal-950",
+  orange = "bg-orange-950",
+  lime = "bg-lime-950",
+  pink = "bg-pink-950",
 }
 
 type Tag = {

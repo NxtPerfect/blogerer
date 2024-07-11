@@ -24,6 +24,8 @@
   const posts: Array<Post> = [
     {id: id, title: "My Very Firsty Article", date: "01/01/1990", tags: [tags.ai, tags.web, tags.functional], content: "A very descriptive description that is describing quite a lot if you think about it and it really does say a lot about society like when you think about it it really says and then when it doesn’t say it’s more like it’s you know so that you know when it knows. Then the next sentence starts and I’m trying to say that what I’m saying is saying a bit of a saying and then it happens that you’re actually using this as a sample text but no one will read this anyway so we can safely assume that unsafe safe is safe in unsafe but then it’s unsafe. You can argue about how much it it’s actually, you might be right although it’s not really that like that so W poggers."} as Post
   ]
+  export let data;
+  console.log(data.posts)
 </script>
 
 <svelte:head>
