@@ -11,7 +11,7 @@
 	</p>
 
 	<p>
-    To know what more, visit <a href="portfolio.website.ai">my portfolio</a>
+    To know what more, visit <a class="underline text-blue-500 hover:text-blue-400" href="https://portfolio-nxtperfects-projects.vercel.app">my portfolio</a>
 	</p>
 
 </div>
