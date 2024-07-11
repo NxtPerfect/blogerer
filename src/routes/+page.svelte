@@ -51,7 +51,7 @@
         <h3 class="mt-8 text-5xl tracking-wide">{category.name}</h3>
         <p class="mt-2 font-sans text-2xl">({category.count})</p>
         <span class="h-full mt-4 text-xl text-center tracking-wider text-pretty font-sans">{category.description}</span>
-        <a class="mt-6 bg-secondary hover:bg-zinc-500 active:bg-zinc-800 rounded-xl text-primary text-xl w-full py-3 font-sans text-center" href="posts&category={category.name}" >
+        <a class="mt-6 bg-secondary hover:bg-zinc-500 active:bg-zinc-800 rounded-xl text-primary text-xl w-full py-3 font-sans text-center" href="posts?category={category.name}" >
           find related posts
         </a>
       </div>
@@ -65,7 +65,7 @@
   </h2>
   {#each posts as post}
     <div class="mt-16 grid grid-cols-3 gap-6 w-[78svw] h-[40svh] bg-primary rounded-xl px-8 py-3 self-start items-start justify-items-center">
-      <img alt="placeholder image for article" src={article_placeholder} class="rounded-xl w-full h-full"/>
+      <img alt="placeholder for article" src={article_placeholder} class="rounded-xl w-full h-full"/>
       <div class="flex flex-col col-span-2 py-1">
         <h3 class="text-5xl tracking-wide">
           {post.title}

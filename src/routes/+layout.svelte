@@ -7,7 +7,7 @@
 <div class="app bg-secondary">
 	<Nav />
 
-	<main>
+	<main class="flex flex-col text-primary justify-items-center items-center">
 		<slot />
 	</main>
 
