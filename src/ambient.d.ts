@@ -14,9 +14,9 @@ type Post = {
 }
 
 export enum Color {
-  red = "red",
-  green = "emerald",
-  blue = "blue",
+  red = "bg-red-950",
+  green = "bg-emerald-950",
+  blue = "bg-blue-950",
   purple = "purple",
   black = "neutral",
   yellow = "yellow",
