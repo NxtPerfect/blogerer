@@ -20,12 +20,7 @@
     functional: {name: "Func", color: Color.blue} as Tag,
   }
 
-  id = 0;
-  const posts: Array<Post> = [
-    {id: id, title: "My Very Firsty Article", date: "01/01/1990", tags: [tags.ai, tags.web, tags.functional], content: "A very descriptive description that is describing quite a lot if you think about it and it really does say a lot about society like when you think about it it really says and then when it doesn’t say it’s more like it’s you know so that you know when it knows. Then the next sentence starts and I’m trying to say that what I’m saying is saying a bit of a saying and then it happens that you’re actually using this as a sample text but no one will read this anyway so we can safely assume that unsafe safe is safe in unsafe but then it’s unsafe. You can argue about how much it it’s actually, you might be right although it’s not really that like that so W poggers."} as Post
-  ]
   export let data;
-  console.log(data.posts)
 </script>
 
 <svelte:head>
@@ -34,7 +29,7 @@
 </svelte:head>
 
 <section class="flex flex-col pt-4 items-center">
-  <p class="mt-[-5svh] text-[30svh] overflow-x-clip text-nowrap w-full font-serif text-transparent text-outline font-outline-4">{'Hazel '.repeat(8)}</p>
+  <p class="mt-[-5svh] text-[30svh] overflow-x-hidden text-nowrap w-[100svw] font-serif text-transparent text-outline font-outline-4">{'Hazel '.repeat(8)}</p>
 	<h1 class="mt-[-29svh] text-8xl text-primary">
     Welcome to <span class="font-serif">my</span> <span class="font-sans">personal</span> <span class="font-mono">blog</span>
 	</h1>
@@ -65,28 +60,30 @@
   <h2 class="text-6xl ml-[-5rem] mt-32 text-primary">
     or if you want the newest articles
   </h2>
-  {#each posts as post}
+  {#each data.posts.rows as post}
     <div class="mt-16 grid grid-cols-3 gap-6 w-[78svw] h-[40svh] bg-primary rounded-xl px-8 py-3 self-start items-start justify-items-center">
       <img alt="placeholder for article" src={article_placeholder} class="rounded-xl w-full h-full"/>
-      <div class="flex flex-col col-span-2 py-1">
+      <div class="flex flex-col justify-self-stretch col-span-2 py-1">
         <h3 class="text-5xl tracking-wide">
           {post.title}
         </h3>
         <div class="mt-2 flex flex-row gap-10 text-2xl">
           <p>
-            {post.date}
+            {post.dateadded}
           </p>
           <div class="pl-24 flex flex-row gap-4 text-md">
-            Tags:
-            {#each post.tags as tag}
-              <a class="rounded-2xl px-4 text-primary {tag.color} text-center" href="posts?category={tag.name}">
-                {tag.name}
+            Tag:
+              <a class="rounded-2xl px-4 text-primary {tags[post.tag.toLowerCase()].color} text-center" href="posts?category={post.tag}">
+                {post.tag}
               </a>
-            {/each}
           </div>
         </div>
         <span class="overflow-ellipsis overflow-hidden text-justify font-serif text-2xl line-clamp-7">
-          {post.content}
+          {#each post.content as content}
+          <section>
+            {content}
+          </section>
+          {/each}
         </span>
         <a type="button" class="text-primary bg-secondary hover:bg-zinc-500 active:bg-zinc-800 transition-all duration-[50] mt-1 px-16 py-2 rounded-xl font-sans text-xl w-fit self-end text-center" href="post/{post.id}">
           read more
