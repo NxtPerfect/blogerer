@@ -34,8 +34,8 @@
   </div>
   <!-- for section in database, render each -->
   {#each post.content as content}
-    <section class="mt-[1lh] w-[70ch] text-pretty text-justify leading-normal text-xl font-serif">
-      {content}
-    </section>
+    <p class="mt-[1lh] w-[70ch] text-pretty text-justify leading-normal text-xl font-serif">
+      {@html content}
+    </p>
   {/each}
 </section>
