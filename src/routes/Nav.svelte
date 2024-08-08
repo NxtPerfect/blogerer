@@ -17,6 +17,9 @@
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined} class="underline {$page.url.pathname === '/about' ? 'text-primary text-lg' : 'text-primary/75 hover:text-primary hover:px-0 transition-all duration-[50] px-4'}">
 				<a href="/about">{$page.url.pathname === '/about' ? '>' : ''}About Me</a>
 			</li>
+			<li aria-current={$page.url.pathname === '/login' ? 'page' : undefined} class="underline {$page.url.pathname === '/about' ? 'text-primary text-lg' : 'text-primary/75 hover:text-primary hover:px-0 transition-all duration-[50] px-4'}">
+				<a href="/login">{$page.url.pathname === '/login' ? '>' : ''}Login</a>
+			</li>
 		</ul>
 	</nav>
 </div>

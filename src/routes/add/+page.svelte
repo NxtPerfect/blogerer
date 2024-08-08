@@ -22,7 +22,7 @@
 
 <form class="mt-4 flex flex-col justify-center items-center content-center" method="POST">
   <label for="title">Title</label>
-  <input type="text" name="title" placeholder="Article title"/>
+  <input type="text" name="title" class="rounded-md px-2 py-1 text-black" placeholder="Article title"/>
   <label for="content">Content:</label>
   <div class="flex flex-row gap-16 h-[75svh]">
     <div class="bg-white rounded-md w-[60ch] overflow-hidden">

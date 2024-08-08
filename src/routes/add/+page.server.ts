@@ -11,12 +11,26 @@ export async function load() {
 // <p> starting and </p> ending string
 export const actions = {
   default: async ({ cookies, request }) => {
-    const data = await request.formData();
-    console.log(data.get("content"))
+    const data: FormData = await request.formData();
+    console.log("Content:", data.get("content"))
+    console.log("Category:", data.get("category"))
     // test
-    const content = data.get("content");
-    const paragraph = content.slice(content.search(/<p>/) + "<p>".length, content.search(/<\/p>/));
-    console.log(paragraph)
+    let content: string | undefined = data.get("content")?.toString().trim();
+    if (content === undefined) {
+      console.error("No content found")
+      return;
+    }
+    let startingTagPos: number = content.search(/<p>/)
+    let endingTagPos: number = content.search(/<\/p>/)
+    const paragraphs: Array<string> = []
+    while (endingTagPos != -1 && startingTagPos != -1) {
+      paragraphs.push(content.slice(startingTagPos + "<p>".length, endingTagPos).trim());
+      content = content.slice(endingTagPos + "</p>".length, content.length).trim();
+      console.log("Parsed paragraph:", paragraphs)
+      console.log("Current content:", content)
+      startingTagPos = content.search(/<p>/)
+      endingTagPos = content.search(/<\/p>/)
+    }
     // const response = await sql`INSERT INTO posts;`
     // post: await sql`INSERT INTO posts ("title", "dateadded", "content", "tags") VALUES ('My very first post', CURRENT_DATE, '{"This is simply a test article that i''m using in prod, what about it ?", "There''s also a need to test if different sections work", "Now let''s get to work"}', (SELECT id FROM tags WHERE name = 'Web'));`
   }
