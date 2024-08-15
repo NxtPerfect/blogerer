@@ -1,3 +1,4 @@
+import { user } from "$lib/stores/user";
 import { redirect } from "@sveltejs/kit";
 import { sql, type QueryResult } from "@vercel/postgres";
 import bcrypt from "bcryptjs";
@@ -14,13 +15,13 @@ export const actions = {
       }
     }
 
-    // Verify password with db
-    const databaseResult: QueryResult = await sql`SELECT password FROM users;`
-    const correctPassword: string = databaseResult.rows[0].password
+    const databaseResults: QueryResult = await sql`SELECT password FROM users;`
+    const correctPassword: string = databaseResults.rows[0].password
     bcrypt.compare(password, correctPassword, (err, res) => {
       if (err) return { status: 500, body: { success: false } }
       if (res === true) {
-        // redirect to /add
+        user.set({ name: "admin" })
+        cookies.set('name', "admin")
         throw redirect(302, "/add")
       }
     })

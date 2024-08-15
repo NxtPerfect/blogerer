@@ -41,7 +41,7 @@
         <span class="overflow-ellipsis overflow-hidden text-justify font-serif text-2xl line-clamp-7">
           {#each post.content as content}
           <section>
-            {content}
+            {@html content}
           </section>
           {/each}
         </span>

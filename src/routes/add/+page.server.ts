@@ -1,4 +1,5 @@
-import { sql } from "@vercel/postgres";
+import { redirect } from "@sveltejs/kit";
+import { sql, type QueryResult } from "@vercel/postgres";
 
 export async function load() {
   return {
@@ -12,26 +13,40 @@ export async function load() {
 export const actions = {
   default: async ({ cookies, request }) => {
     const data: FormData = await request.formData();
-    console.log("Content:", data.get("content"))
-    console.log("Category:", data.get("category"))
     // test
-    let content: string | undefined = data.get("content")?.toString().trim();
-    if (content === undefined) {
+    let formFieldContent: string | undefined = data.get("content")?.toString().trim();
+    if (formFieldContent === undefined) {
       console.error("No content found")
       return;
     }
-    let startingTagPos: number = content.search(/<p>/)
-    let endingTagPos: number = content.search(/<\/p>/)
+    let startingTagPos: number = formFieldContent.search(/<p>/)
+    let endingTagPos: number = formFieldContent.search(/<\/p>/)
     const paragraphs: Array<string> = []
     while (endingTagPos != -1 && startingTagPos != -1) {
-      paragraphs.push(content.slice(startingTagPos + "<p>".length, endingTagPos).trim());
-      content = content.slice(endingTagPos + "</p>".length, content.length).trim();
-      console.log("Parsed paragraph:", paragraphs)
-      console.log("Current content:", content)
-      startingTagPos = content.search(/<p>/)
-      endingTagPos = content.search(/<\/p>/)
+      paragraphs.push(formFieldContent.slice(startingTagPos + "<p>".length, endingTagPos).trim());
+      formFieldContent = formFieldContent.slice(endingTagPos + "</p>".length, formFieldContent.length).trim();
+      startingTagPos = formFieldContent.search(/<p>/)
+      endingTagPos = formFieldContent.search(/<\/p>/)
     }
-    // const response = await sql`INSERT INTO posts;`
-    // post: await sql`INSERT INTO posts ("title", "dateadded", "content", "tags") VALUES ('My very first post', CURRENT_DATE, '{"This is simply a test article that i''m using in prod, what about it ?", "There''s also a need to test if different sections work", "Now let''s get to work"}', (SELECT id FROM tags WHERE name = 'Web'));`
+
+    if (!data.get("title")?.toString()) return false;
+    const title: string = data.get("title")?.toString() as string;
+
+    // const content: string = paragraphs.map((paragraph) => {
+    //   return `"${paragraph}"`
+    // })
+    //   .join(",")
+    //   .replace("'", "''") as string;
+    const content: Array<string> = paragraphs;
+
+    if (!data.get("category")?.toString()) return false;
+    const tags: string = data.get("category")?.toString() as string;
+
+    const response: QueryResult = await sql`INSERT INTO posts ("title", "dateadded", "content", "tags") VALUES (${title}, CURRENT_DATE, ${content}, (SELECT id FROM tags WHERE name = ${tags}));`
+    // const response: string = `INSERT INTO posts ("title", "dateadded", "content", "tags") VALUES ('${title}', CURRENT_DATE, '{${content}}', (SELECT id FROM tags WHERE name = ${tags}));`
+    if (response) {
+      throw redirect(302, "/")
+    }
+    console.log(response)
   }
 }

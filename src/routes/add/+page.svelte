@@ -21,10 +21,10 @@
 </h1>
 
 <form class="mt-4 flex flex-col justify-center items-center content-center" method="POST">
-  <label for="title">Title</label>
+  <label for="title" class="text-xl">Title</label>
   <input type="text" name="title" class="rounded-md px-2 py-1 text-black" placeholder="Article title"/>
-  <label for="content">Content:</label>
-  <div class="flex flex-row gap-16 h-[75svh]">
+  <label for="content" class="mt-4 text-xl">Content:</label>
+  <div class="flex flex-row gap-16 h-[50svh]">
     <div class="bg-white rounded-md w-[60ch] overflow-hidden">
       <span class="text-2xl flex justify-center items-center text-black/25 select-none">Markdown</span>
       <textarea class="text-black px-2 py-1 w-full h-full resize-none" bind:value={markdown} placeholder={placeholderText}/>

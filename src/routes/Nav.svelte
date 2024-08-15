@@ -8,17 +8,17 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined} class="underline {$page.url.pathname === '/' ? 'text-primary text-lg' : 'text-primary/75 hover:text-primary hover:px-0 transition-all duration-[50] px-4'}">
 				<a href="/">{$page.url.pathname === '/' ? '>' : ''}Home</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/categories') ? 'page' : undefined} class="underline {$page.url.pathname === '/categories' ? 'text-primary text-lg' : 'text-primary/75 hover:text-primary hover:px-0 transition-all duration-[50] px-4'}">
-				<a href="/categories">{$page.url.pathname === '/categories' ? '>' : ''}Categories</a>
-			</li>
+			<!-- <li aria-current={$page.url.pathname.startsWith('/categories') ? 'page' : undefined} class="underline {$page.url.pathname === '/categories' ? 'text-primary text-lg' : 'text-primary/75 hover:text-primary hover:px-0 transition-all duration-[50] px-4'}"> -->
+			<!-- 	<a href="/categories">{$page.url.pathname === '/categories' ? '>' : ''}Categories</a> -->
+			<!-- </li> -->
 			<li aria-current={$page.url.pathname.startsWith('/posts') ? 'page' : undefined} class="underline {$page.url.pathname === '/posts' ? 'text-primary text-lg' : 'text-primary/75 hover:text-primary hover:px-0 transition-all duration-[50] px-4'}">
 				<a href="/posts">{$page.url.pathname === '/posts' ? '>' : ''}Browse Posts</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined} class="underline {$page.url.pathname === '/about' ? 'text-primary text-lg' : 'text-primary/75 hover:text-primary hover:px-0 transition-all duration-[50] px-4'}">
 				<a href="/about">{$page.url.pathname === '/about' ? '>' : ''}About Me</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/login' ? 'page' : undefined} class="underline {$page.url.pathname === '/about' ? 'text-primary text-lg' : 'text-primary/75 hover:text-primary hover:px-0 transition-all duration-[50] px-4'}">
-				<a href="/login">{$page.url.pathname === '/login' ? '>' : ''}Login</a>
+			<li aria-current={$page.url.pathname === '/add' ? 'page' : undefined} class="underline {$page.url.pathname === '/add' ? 'text-primary text-lg' : 'text-primary/75 hover:text-primary hover:px-0 transition-all duration-[50] px-4'}">
+				<a href="/login">{$page.url.pathname === '/add' ? '>' : ''}Add New Post</a>
 			</li>
 		</ul>
 	</nav>
